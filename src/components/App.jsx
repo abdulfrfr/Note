@@ -18,7 +18,7 @@ const notesApi = axios.create({
 .then((responds)=> setNotes(responds.data))
 .catch((error)=>console.log(error));
 
-  }, [])
+  }, [notes])
 
 
 
@@ -55,7 +55,7 @@ const notesApi = axios.create({
   
 
   function deleteNote(id){
-   notesApi.delete(`/${id}`)
+   notesApi.delete(`/${id}`);
     setNotes((prevNotes)=>{
       return prevNotes.filter((note, index)=>{
        return index !== id
